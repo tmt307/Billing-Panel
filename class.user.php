@@ -124,6 +124,6 @@ class USER
 		$mail->AddReplyTo('mail@mail.net','Company Name');
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
-		$mail->Send();
+		$mail->Send(); 
 	} 
 }
