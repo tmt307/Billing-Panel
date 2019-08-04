@@ -1,4 +1,11 @@
-<?php include('header.php'); ?>
+<?php 
+
+include('header.php'); 
+
+require_once('class.user.php');
+
+
+?>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>Open Dashboard</a>
 <div id="offcanvas-slide" uk-offcanvas>
 	<div class="uk-offcanvas-bar">
