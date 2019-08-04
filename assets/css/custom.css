@@ -7,3 +7,9 @@
     background: #009d34 !important;
     color: #32d296;
 }
+
+.uk-button-primary {
+    background-color: #1e87f0 !important;
+    color: #fff !important;
+    border: 1px solid transparent;
+}
