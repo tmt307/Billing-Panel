@@ -125,5 +125,5 @@ class USER
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();
-	}
+	} 
 }
