@@ -109,6 +109,21 @@ class USER
 
 	function send_mail($email,$message,$subject)
 	{
-
+		require_once('mailer/class.phpmailer.php');
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->SMTPDebug  = 0;
+		$mail->SMTPAuth = true;							//Sets SMTP authentication. Utilizes the Username and Password variables
+		$mail->SMTPSecure = "";
+		$mail->Host = '';		//Sets the SMTP hosts of your Email hosting, this for Godaddy
+		$mail->Port = '';								//Sets the default SMTP server port
+		$mail->AddAddress($email);
+		$mail->Username="";
+		$mail->Password="";
+		$mail->SetFrom('mail@mail.net','Company Name');
+		$mail->AddReplyTo('mail@mail.net','Company Name');
+		$mail->Subject    = $subject;
+		$mail->MsgHTML($message);
+		$mail->Send();
 	}
 }
