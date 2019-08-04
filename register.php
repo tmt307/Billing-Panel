@@ -55,10 +55,10 @@ if (isset($_POST['btn-register'])) {
             $message = "
     Hello $username,
     <br />
-    Welcome to $baseurl<br/>
+    Welcome to $websitename<br/>
     To complete your registration  please , just click following link<br/>
 
-    <a href='$baseurl/verify.php?id=$id&code=$code'> Click here to activate your account.</a>
+    <a href='$base_url/verify.php?id=$id&code=$code'> Click here to activate your account.</a>
     <br /><br />
     Thanks,";
             
@@ -86,7 +86,9 @@ if (isset($_POST['btn-register'])) {
             <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
                 <div class="uk-width-1-1@m">
                     <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-secondary uk-card-body uk-box-shadow-large">
-                        <h3 class="uk-card-title uk-text-center">Register</h3>
+                        <h3 class="uk-card-title uk-text-center"><?php echo $websitename; ?>
+
+                        <br /> Create An Account</h3>
                         <?php if(isset($msg)) echo $msg;  ?>
                         <form method="post">
                             <fieldset class="uk-fieldset">
@@ -121,10 +123,10 @@ if (isset($_POST['btn-register'])) {
                                 </div>
                                 Already have an account?
                                 <p>
-                                    <button type="submit" class="uk-button uk-button-default">
-                                    Login
-                                    </button>
-                                </p>
+                                    <a href="login.php"><input type="submit" class="uk-button uk-button-default" value="Login">
+
+                            
+                                </a>
                                 <hr />
                                 
                                 

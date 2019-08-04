@@ -114,16 +114,16 @@ class USER
 		$mail->IsSMTP();
 		$mail->SMTPDebug  = 0;
 		$mail->SMTPAuth = true;							//Sets SMTP authentication. Utilizes the Username and Password variables
-		$mail->SMTPSecure = "";
-		$mail->Host = '';		//Sets the SMTP hosts of your Email hosting, this for Godaddy
-		$mail->Port = '';								//Sets the default SMTP server port
+		$mail->SMTPSecure = "ssl";
+		$mail->Host = 'server1.spartanhost.net';		//Sets the SMTP hosts of your Email hosting, this for Godaddy
+		$mail->Port = '465';								//Sets the default SMTP server port
 		$mail->AddAddress($email);
-		$mail->Username="";
-		$mail->Password="";
-		$mail->SetFrom('mail@mail.net','Company Name');
-		$mail->AddReplyTo('mail@mail.net','Company Name');
+		$mail->Username="no-reply@fitnessplanner.net";
+		$mail->Password="H{VZ^~!mz-p-";
+		$mail->SetFrom('no-reply@fitnessplanner.net','Fitness Planner');
+		$mail->AddReplyTo("no-reply@fitnessplanner.net","Fitness Planner");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();
-	} 
+	}
 }

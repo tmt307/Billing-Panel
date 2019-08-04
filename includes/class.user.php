@@ -119,7 +119,7 @@ class USER
 		$mail->Port = '465';								//Sets the default SMTP server port
 		$mail->AddAddress($email);
 		$mail->Username="no-reply@fitnessplanner.net";
-		$mail->Password="&f}m?%+kr*(badawd";
+		$mail->Password="S.E;(u$.Z+1G";
 		$mail->SetFrom('no-reply@fitnessplanner.net','Fitness Planner');
 		$mail->AddReplyTo("no-reply@fitnessplanner.net","Fitness Planner");
 		$mail->Subject    = $subject;
