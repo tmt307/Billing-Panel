@@ -1,6 +1,6 @@
 # Billing & Invoicing System
 
-This Project is currently in development my goal is to make a billing platform which will have the following features and much more.
+#This Project is currently in development my goal is to make a billing platform which will have the following features and much more.
 
 Ability to create an admin account
 Ability for clients to create their accounts
