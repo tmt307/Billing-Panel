@@ -2,15 +2,27 @@
 
 include('header.php'); 
 
-require_once('class.user.php');
+session_start();
+require_once 'class.user.php';
+$user_home = new USER();
 
+if(!$user_home->is_logged_in())
+{
+	$user_home->redirect('login.php');
+}
+
+$stmt = $user_home->runQuery("SELECT * FROM users WHERE userID=:uid");
+$stmt->execute(array(":uid"=>$_SESSION['userSession']));
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>Open Dashboard</a>
+
 <div id="offcanvas-slide" uk-offcanvas>
 	<div class="uk-offcanvas-bar">
 		<ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
 			<li class="uk-active"><a href="#"> Account Dashboard </a></li>
+			<span><?php echo $row['userName']; ?> Welcome Back </span>
 		    <hr >
 			<li class="uk-parent">
 				<a href="#">Account Settings</a>
@@ -18,7 +30,7 @@ require_once('class.user.php');
 					<li><a href="#">Edit Account</a></li>
 					<li><a href="#">Change Password</a></li>
 					<li>
-						<a href="#">Logout</a>
+						<a href="logout.php">Logout</a>
 					</li>
 				</ul>
 			</li>

@@ -32,7 +32,7 @@ class USER
 		{
 			$password = md5($upass);
 			$stmt = $this->conn->prepare("INSERT INTO users(userName,userEmail,userPass,tokenCode)
-			                                             VALUES(:user_name, :user_mail, :user_pass, :active_code)");
+			VALUES(:user_name, :user_mail, :user_pass, :active_code)");
 			$stmt->bindparam(":user_name",$username);
 			$stmt->bindparam(":user_mail",$email);
 			$stmt->bindparam(":user_pass",$password);
@@ -65,19 +65,19 @@ class USER
 					}
 					else
 					{
-						header("Location: index.php?error");
+						header("Location: login.php?error");
 						exit;
 					}
 				}
 				else
 				{
-					header("Location: index.php?inactive");
+					header("Location: login.php?inactive");
 					exit;
 				}
 			}
 			else
 			{
-				header("Location: index.php?error");
+				header("Location: login.php?error");
 				exit;
 			}
 		}
