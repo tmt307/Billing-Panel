@@ -124,6 +124,11 @@ class USER
 		$mail->AddReplyTo("no-reply@fitnessplanner.net","Fitness Planner");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
+<<<<<<< HEAD
 		$mail->Send();
 	}
+=======
+		$mail->Send(); 
+	} 
+>>>>>>> d6cea66b291934ef5cccbd39fb49521e629534e9
 }
