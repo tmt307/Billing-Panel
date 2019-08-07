@@ -16,9 +16,12 @@ $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
-<a href="#offcanvas-slide" class="uk-button uk-button-secondary" uk-toggle>Open Dashboard</a>
-<div id="offcanvas-slide" uk-offcanvas>
-	<div class="uk-offcanvas-bar">
+
+
+<div class="uk-section uk-padding-remove">
+		<div class="uk-grid-collapse" uk-grid>
+			<div id="sidebar" class="uk-width-1-4 uk-visible@m uk-padding-small uk-padding-remove-top uk-animation-slide-left uk-section-secondary">
+
 		<ul class="uk-nav-secondary uk-nav-parent-icon" uk-nav>
 			<li class="uk-active"><a href="#"> Account Dashboard </a></li>
 			<span><?php echo $row['userName']; ?> Welcome Back </span>
@@ -33,7 +36,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 					</li>
 				</ul>
 			</li>
-			
 			<li class="uk-parent">
 				<a href="#">Clients</a>
 				<ul class="uk-nav-sub">
@@ -107,9 +109,66 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 			</li>
 		</ul>
 	</div>
-</div>
 
 <div class="uk-text-center" uk-grid>
+    <div class="uk-width-1-auto">
+        <div class="uk-card uk-card-secondary uk-card-body">
+
+  <canvas id="chartjs-0" style="height:380px; width:620px"></canvas>
+  <script>
+    new Chart(document.getElementById("chartjs-0"), {
+      "type": "line",
+      "data": {
+        "labels": ["11-24 13:05", "11-24 19:05", "11-24 22:05", "11-25 10:05", "11-25 14:05", "11-25 19:05", "11-25 23:05", "11-26 10:05", "11-26 13:05", "11-26 18:05", "11-26 22:05"],
+        "datasets": [{
+          "label": "Day Income from last 30 days",
+          "data": [5, 10, 20, 30, 25, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200],
+          "fill": true,
+          "borderColor": "#fffcdc",
+          "lineTension": .4,
+          "pointBorderColor": "blue",
+          "spanGaps": true,
+        }]
+      },
+      "options": {
+        legend: {
+          labels: {
+            fontColor: "white",
+            fontSize: 16
+          }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              fontColor: "white"
+            },
+            gridLines: {
+              display: true,
+              color: "#1e87f0"
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontColor: "white",
+            },
+            gridLines: {
+              display: true,
+              color: "#1e87f0"
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</div>
+
+</div>
+
+</div>
+
+
+
+
     <div class="uk-width-1-1">
         <div class="uk-card uk-card-secondary uk-card-body">
 
@@ -165,3 +224,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="uk-card uk-card-secondary uk-card-body">1-2</div>
     </div>
 </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+
+

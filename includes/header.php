@@ -13,11 +13,13 @@
 	<link href="assets/css/uikit.min.css" rel="stylesheet">
 	<link href="assets/css/custom.css" rel="stylesheet">
 	<link href="assets/css/styles.css" rel="stylesheet">
+	<link href="assets/css/chart.css" rel="stylesheet">
 
 	<!-- Javascript Simple Scripts --->
 	<script src="assets/js/uikit.min.js" type="text/javascript"></script>
 	<script src="assets/js/uikit-icons.min.js" type="text/javascript"></script>
 	<script src="assets/js/font-awesome-5.js" type="text/javascript"></script>
+	<script src="assets/js/chart.js" type="text/javascript"></script>
 
 
 </head>
