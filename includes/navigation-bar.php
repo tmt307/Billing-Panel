@@ -17,10 +17,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
-
-<div class="uk-section uk-padding-remove">
 		<div class="uk-grid-collapse" uk-grid>
-			<div id="sidebar" class="uk-width-1-4 uk-visible@m uk-padding-small uk-padding-remove-top uk-animation-slide-left uk-section-secondary">
+			<div id="sidebar" class="uk-width-1-4 uk-visible@m uk-padding-small uk-section-secondary">
 
 		<ul class="uk-nav-secondary uk-nav-parent-icon" uk-nav>
 			<li class="uk-active"><a href="#"> Account Dashboard </a></li>
@@ -110,9 +108,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 		</ul>
 	</div>
 
-<div class="uk-text-center" uk-grid>
-    <div class="uk-width-1-auto">
-        <div class="uk-card uk-card-secondary uk-card-body">
+
+           <div class="uk-width-3-4 uk-card uk-card-secondary uk-card-body" >
 
   <canvas id="chartjs-0" style="height:380px; width:620px"></canvas>
   <script>
