@@ -9,10 +9,10 @@ $websitename = "Toms Billing System";
 
 class Database
 {
-  private $host = "104.194.207.00";
-  private $db_name = "000";
-  private $username = "000";
-  private $password = "00";
+  private $host = "localhost";
+  private $db_name = "test";
+  private $username = "test";
+  private $password = "";
     public $conn;
 
     public function dbConnection()
