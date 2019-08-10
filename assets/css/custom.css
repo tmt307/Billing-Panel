@@ -13,3 +13,20 @@
     color: #fff !important;
     border: 1px solid transparent;
 }
+
+.ck.ck-button.ck-on, a.ck.ck-button.ck-on {
+    background: var(--ck-color-button-on-background);
+}
+
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    background: #333333 !important;
+    border-radius: var(--ck-border-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.ck.ck-toolbar {
+    background: #ffffff !important;
+    padding: 0 var(--ck-spacing-small);
+    border: 1px solid var(--ck-color-toolbar-border);
+}
