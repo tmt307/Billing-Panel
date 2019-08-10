@@ -4,7 +4,7 @@
 <?php require_once('includes/navigation-bar.php'); ?>
 
 
- <div class="uk-width-3-4 uk-card uk-card-secondary uk-card-body" >
+ <div class="uk-width-3-4 uk-card uk-card-primary uk-card-body" >
 
   <canvas id="chartjs-0" style="height:380px; width:620px"></canvas>
   <script>
@@ -59,7 +59,7 @@
 
 
     <div class="uk-width-1-1 ">
-        <div class="uk-card uk-card-secondary uk-card-body">
+        <div class="uk-card uk-card-default uk-card-body">
 
         	<h5> Recent Orders </h5>
 <table class="uk-table uk-table-middle uk-table-divider">
