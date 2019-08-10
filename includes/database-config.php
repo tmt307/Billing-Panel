@@ -9,11 +9,7 @@ $websitename = "Toms Billing System";
 
 class Database
 {
-  private $host = "104.194.207.83";
-  private $db_name = "mrthomas_clibill";
-  private $username = "mrthomas_clibill";
-  private $password = "UmBafH95yZz4rUj";
-    public $conn;
+
 
     public function dbConnection()
 	{
