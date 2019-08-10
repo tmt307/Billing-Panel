@@ -4,7 +4,7 @@
 <?php require_once('includes/navigation-bar.php'); ?>
 
 
- <div class="uk-width-3-4 uk-card uk-card-primary uk-card-body" >
+ <div class="uk-width-3-4  uk-card uk-card-primary uk-card-body" >
 
   <canvas id="chartjs-0" style="height:380px; width:620px"></canvas>
   <script>

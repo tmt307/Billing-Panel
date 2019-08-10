@@ -3,7 +3,7 @@
 
 <?php require_once('includes/navigation-bar.php'); ?>
 
-<div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
+<div class="uk-width-3-4 uk-card uk-card-primary uk-card-body" >
     <h3> Add A New Client </h3>
     <div class="uk-margin">
         <div class="uk-inline">

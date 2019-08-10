@@ -20,6 +20,7 @@
 	<script src="assets/js/uikit-icons.min.js" type="text/javascript"></script>
 	<script src="assets/js/font-awesome-5.js" type="text/javascript"></script>
 	<script src="assets/js/chart.js" type="text/javascript"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
 
 
 </head>
