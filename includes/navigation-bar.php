@@ -21,9 +21,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
   <div id="sidebar" class="uk-width-1-4 uk-width-expand@m uk-padding-small uk-section-default">
     <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
       <h3><li class="uk-active"> Account Dashboard</li>
-    <span><?php echo $row['userName']; ?> Welcome Back </span></h3>
+    <span>Welcome Back <?php echo $row['userName']; ?> </span></h3>
       <hr >
-      <a href="index.php">Dashboard</a>
+      <a href="index.php" style="font-size:15px;">Dashboard</a>
       <li class="uk-parent">
         <a href="#">Account Settings</a>
         <ul class="uk-nav-sub">

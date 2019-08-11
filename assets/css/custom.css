@@ -3,6 +3,9 @@
     color: #f0506e;
 }
 
+li.uk-parent {
+    font-size: 15px !important;
+}
 
 .uk-alert-success {
     background: #009d34 !important;

@@ -43,7 +43,7 @@
   <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
     <div class="uk-width-1-2">
       <select class="uk-select">
-        <option>currency</option>
+        <option>Select a Currency</option>
         <option>GBP</option>
         <option>USD</option>
         <option>CAD</option>
