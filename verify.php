@@ -1,7 +1,7 @@
 <?php
 require_once('includes/header.php');
 
-require_once('class.user.php');
+require_once 'includes/functions.php';
 
 $user = new USER();
 

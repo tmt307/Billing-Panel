@@ -26,11 +26,11 @@ class USER
 		return $stmt;
 	}
 
-	public function register($username,$email,$upass,$code)
+	public function register($username,$email,$password,$code)
 	{
 		try
 		{
-			$password = md5($upass);
+			$password = md5($password);
 			$stmt = $this->conn->prepare("INSERT INTO users(userName,userEmail,userPass,tokenCode)
 			VALUES(:user_name, :user_mail, :user_pass, :active_code)");
 			$stmt->bindparam(":user_name",$username);
@@ -46,7 +46,7 @@ class USER
 		}
 	}
 
-	public function login($email,$upass)
+	public function login($email,$password)
 	{
 		try
 		{
@@ -58,7 +58,7 @@ class USER
 			{
 				if($userRow['userStatus']=="Y")
 				{
-					if($userRow['userPass']==md5($upass))
+					if($userRow['userPass']==md5($password))
 					{
 						$_SESSION['userSession'] = $userRow['userID'];
 						return true;

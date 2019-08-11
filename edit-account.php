@@ -5,6 +5,18 @@
 
  <div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
 
+
+<?php if(isset($_POST['btn-login']))
+{
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    if($user_login->login($email,$password))
+    {
+        $user_login->redirect('index.php');
+    }
+} ?>
+
 <h3>Edit Account Information </h3>
 <div class="uk-margin">
 	<div class="uk-inline">
@@ -25,6 +37,7 @@
 </div>
 <a class="uk-button uk-button-default" href="#">Submit</a>
 </div>
+
 <div class="uk-width-1-4 uk-card uk-card-default uk-card-body" >
 <h3> Edit Profile Picture </h3>
 <div class="js-upload" uk-form-custom>
