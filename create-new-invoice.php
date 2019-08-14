@@ -65,7 +65,6 @@
     </div>
    
   <br />
-  <button class="uk-button uk-button-default" type="button">Create Invoice</button>
 </div>
 
 
@@ -414,12 +413,39 @@
         </div>
         <div class="uk-modal-footer uk-text-right">
           <button class="uk-button uk-button-primary" type="button">Save</button>
-        </div>
+        </div> 
       </div>
+
     </div>
+
   </div>
 
+    <div class="uk-width-1-1">
+        <br />
+      <select class="uk-select">
+        <option >Select Invoice Status </option>
+        <option>Paid</option>
+        <option>Unpaid</option>
+        <option>Cancelled</option>
+      </select>
+    </div>
 
+    <div class="uk-width-1-1">
+
+           <br />
+      <select class="uk-select">
+        <option>Select Type of invoice</option>
+        <option>Recuring</option>
+        <option>One Payment</option>
+      </select>
+    </div>
+
+<br />
+
+  <button class="uk-button uk-button-primary" type="button">Create Invoice</button>
+
+
+</div>
 
 <script type="text/javascript">
 	

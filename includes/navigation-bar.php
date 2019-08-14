@@ -3,7 +3,7 @@
 include('header.php'); 
 
 session_start();
-require_once 'class.user.php';
+require_once 'functions.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
