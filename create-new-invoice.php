@@ -60,6 +60,8 @@
   </div>
         <br />
 
+
+
     <div id="editor2">
       <p>Terms of Service Description goes here.</p>
     </div>
@@ -442,10 +444,26 @@
 
 <br />
 
+
+  <input type="text" class=" uk-input" placeholder="Select Due Date" id="calendar-tomorrow">
+  <br />
+    <br />
+  
+
+  <input type="text" class=" uk-input" placeholder="Select Payment Terms" id="calendar-tomorrow">
+<br /><br />
+
   <button class="uk-button uk-button-primary" type="button">Create Invoice</button>
 
 
 </div>
+
+
+<script type="text/javascript">
+    flatpickr('#calendar-tomorrow', {
+});
+</script>
+
 
 <script type="text/javascript">
 	
