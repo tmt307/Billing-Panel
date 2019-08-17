@@ -1,7 +1,7 @@
 <?php
 require_once('includes/header.php');
 
-require_once 'includes/functions.php';
+require_once ('/includes/functions.php');
 
 $reg_user = new USER();
 

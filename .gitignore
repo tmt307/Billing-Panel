@@ -1,10 +1,10 @@
+class.user.php
+/includes/class.phpmailer.php	
+/includes/pop3.php
+/includes/smtp.php
 
-class.user.php
-class.user.php
-includes/class.user.php
-class.user.php
-class.user.php
-class.user.php
-includes/database-config.php
-includes/database-config.php
-includes/database-config.php
+
+/includes/functions.php
+/mailer/class.phpmailer.php	
+/mailer/pop3.php
+/mailer/smtp.php
