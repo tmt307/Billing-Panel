@@ -71,9 +71,6 @@
 
 
 
-
-
-
 <div class="uk-width-1-4 uk-card uk-card-default uk-card-body" >
   <h3> Select a client </h3>
   <select class="uk-select" id="form-horizontal-select">
@@ -437,7 +434,7 @@
            <br />
       <select class="uk-select">
         <option>Select Type of invoice</option>
-        <option>Recuring</option>
+        <option>Recuring<rrr/option>
         <option>One Payment</option>
       </select>
     </div>

@@ -3,6 +3,67 @@
     color: #f0506e;
 }
 
+.welcome-back-text{
+    color: white;
+}
+
+span.uk-align-center.welcome-back-text {
+    margin-left: 10%;
+}
+
+textarea.uk-textarea.uk-form-width-large {
+    border-radius: 10px !important;
+}
+
+.uk-width-1-4.uk-card.uk-card-default.uk-card-body {
+    background: #0d3283;
+    color: white !important;
+}
+
+input.uk-input {
+    color: red !important;
+}
+
+input.uk-input {
+    border-radius: 20px;
+    height: 34px;
+    color: white !important;
+    /* background: #0f2861; */
+}
+
+a.uk-button.uk-button-default {
+    color: white;
+    background: #0f2861;
+    border-color: #0f2861;
+    border-radius: 20px;
+}
+
+button.uk-button.uk-button-primary {
+    color: white !important;
+    border-radius: 50px;
+    background: #0f2861 !important;
+}
+
+input.uk-input {
+    border-radius: 20px;
+    height: 34px;
+    color: white !important;
+}
+
+.uk-card-primary.uk-card-body, .uk-card-primary>:not([class*=uk-card-media]), .uk-card-secondary.uk-card-body, .uk-card-secondary>:not([class*=uk-card-media]), .uk-light, .uk-offcanvas-bar, .uk-overlay-primary, .uk-section-primary:not(.uk-preserve-color), .uk-section-secondary:not(.uk-preserve-color), .uk-tile-primary:not(.uk-preserve-color), .uk-tile-secondary:not(.uk-preserve-color) {
+    color: rgba(255,255,255,.7);
+    background: #0d3283;
+}
+
+.uk-width-1-4.uk-card.uk-card-default.uk-card-body {
+    background: #0d3283;
+    color: white !important;
+}
+
+.account-dash{
+    color: white;
+}
+
 li.uk-parent {
     font-size: 15px !important;
 }
@@ -12,10 +73,39 @@ li.uk-parent {
     color: #32d296;
 }
 
+
+button.uk-button.uk-button-danger {
+    border-radius: 50px;
+    background: #a20909;
+}
+
+.uk-select:not([multiple]):not([size]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+    background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216…66%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+}
+
+button.uk-button.uk-button-paid {
+    color: white !important;
+    border-radius: 50px;
+    background: #09a264 !important;
+}
+
+button.uk-button.uk-button-default {
+    background: #094ca2;
+    color: #ffffff !important;
+    border: 0px;
+    border-radius: 50px;
+}
+
 .uk-button-primary {
     background-color: #1e87f0 !important;
     color: #fff !important;
     border: 1px solid transparent;
+    border-radius: 250px;
 }
 
 .ck.ck-button.ck-on, a.ck.ck-button.ck-on {

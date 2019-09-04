@@ -332,5 +332,6 @@
         </div>
     </div>
 
+        <input type="submit" value="Add New Client" name="add-client" class="uk-button uk-button-default">
 
 </div>

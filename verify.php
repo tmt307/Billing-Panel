@@ -1,7 +1,7 @@
-<?php
-require_once('includes/header.php');
 
-require_once 'includes/functions.php';
+<?php require_once('includes/header.php'); ?>
+
+<?php require_once('includes/navigation-bar.php');
 
 $user = new USER();
 

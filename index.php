@@ -85,7 +85,7 @@
             <td>08/08/2019</td>
             <td>PayPal</td>
             <td>£150.00</td>
-            <td><button class="uk-button uk-button-primary" type="button">Paid</button></td>
+            <td><button class="uk-button uk-button-paid" type="button">Paid</button></td>
             <td><button class="uk-button   uk-button-default" type="button">View Order</button></td>
         </tr>
     </tbody>
