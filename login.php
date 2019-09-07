@@ -64,13 +64,13 @@ $msg = "
                                 <div class="uk-margin">
                                     <div class="uk-position-relative">
                                         <span class="uk-form-icon"  uk-icon="icon: mail"></span>
-                                        <input name="email" class="uk-input" required type="email" placeholder="Email">
+                                        <input name="email" style="background-color: rgba(255,255,255,.1);"  class="uk-input" required type="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <div class="uk-position-relative">
                                         <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                        <input  type="password" name="password" required class="uk-input" type="password" placeholder="Password">
+                                        <input  type="password" style="background-color: rgba(255,255,255,.1);" name="password" required class="uk-input" type="password" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="uk-margin">

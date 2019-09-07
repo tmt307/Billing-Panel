@@ -7,25 +7,36 @@
 
 
 <?php
+ini_set('display_errors',1); error_reporting(E_ALL);
 if (isset($_POST['btn-update'])) {
-	$username = trim($_POST['username']);
-    $email_address = trim($_POST['email_address']);
-    $password      = trim($_POST['password']);
-    echo $username;##
-    // $stmt = 
-      }
-    // $stmt = $reg_user->runQuery("SELECT * FROM users WHERE userEmail=:email_id");
-    // $stmt->execute(array(
-    //     ":email_id" => $email_address
-    // ));
-    // $row = $stmt->fetch(PDO::FETCH_ASSOC);
+$id = $row['userID'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$sql = "UPDATE users SET userName=:username, userEmail=:email WHERE userID=:userID";;
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array(':username' => $username, 
+                  ':email' => $email,
+				  ':userID' => $id, 
+));
+
+header("LOCATION: edit-account.php?successful");
+
+}
+if(isset($_GET['successful']))
+{
+
+echo '<div class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>Your account details have been edited successfully.</p>
+</div>';
+}
 
 ?>
 <h3>Edit Account Information </h3>
-<form action="#" method="post" >
+<form action="" method="post" >
 <div class="uk-margin">
 	<div class="uk-inline">
-		<a class="uk-form-icon" href="#"  uk-icon="icon: lock"></a>
+		<a class="uk-form-icon" href="#"  uk-icon="icon: user"></a>
 		<input name="username" class="uk-input uk-form-width-large" type="text" value="
 <?php echo isset($row['userName']) ? $row['userName'] : ''; ?>" placeholder="Full Name" >
 	</div>
@@ -42,7 +53,7 @@ if (isset($_POST['btn-update'])) {
 		<textarea class="uk-textarea  uk-form-width-large" rows="5" placeholder="Bio"></textarea>
 	</div>
 </div>
-<input value="Submit" class="uk-button uk-button-default" type="submit" name="btn-update" href="#">
+<input onclick="return confirm('Are you sure you want make theses changes?')" class="uk-button uk-button-primary" type="submit" name="btn-update" href="#">
 </div>
 </form>
 

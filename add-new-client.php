@@ -4,35 +4,111 @@
 <?php require_once('includes/navigation-bar.php'); ?>
 
 <div class="uk-width-3-4 uk-card uk-card-primary uk-card-body" >
+
+<?php
+ini_set('display_errors',1); error_reporting(E_ALL);
+
+print_r($_POST);
+
+
+
+
+if (isset($_POST['btn-add-client'])) {
+
+$staff_id = $row['userID'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$address_line_1 = $_POST['address_line_1'];
+$address_line_2 = $_POST['address_line_2'];
+$company_name = $_POST['company_name'];
+$city = $_POST['city'];
+$state_region = $_POST['state_region'];
+$email = $_POST['email'];
+$postcode = $_POST['postcode'];
+$phone_number = $_POST['phone_number'];
+$payment_type = $_POST['payment_type'];
+$password = $_POST['password'];
+$staff_id = $_POST['staff_id'];
+
+// $LAST_ID = $this->conn->lastInsertId();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// prepare sql and bind parameters
+    $stmt = $pdo->prepare("INSERT INTO clients (firstname, lastname,address_line_1,address_line_2,company_name,city,state_region,postcode,phone_number,payment_type,password,staff_id) 
+VALUES ( :firstname, :lastname, :address_line_1, :address_line_2, :company_name, :state_region, :city, :postcode, :phone_number, :payment_type, :password, :staff_id)");
+    $stmt->bindParam(':firstname', $firstname);
+    $stmt->bindParam(':lastname', $lastname);
+    $stmt->bindParam(':address_line_1', $address_line_1);
+    $stmt->bindParam(':address_line_2', $address_line_2);
+    $stmt->bindParam(':company_name', $company_name);
+    $stmt->bindParam(':city', $city);
+    $stmt->bindParam(':state_region', $state_region);
+    $stmt->bindParam(':postcode', $postcode);
+    $stmt->bindParam(':phone_number', $phone_number);
+    $stmt->bindParam(':payment_type', $payment_type);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':staff_id', $staff_id);
+
+// // insert a row
+//     $firstname = $_POST["firstname"];
+//     $lastname = $_POST["lastname"];
+
+    $stmt->execute();
+
+    echo "New records created successfully";
+}
+
+else {
+
+var_dump($pdo->errorInfo());
+}
+// print_r($sql);
+
+// header("LOCATION: add-new-client.php?successful");
+
+
+if(isset($_GET['successful']))
+{
+
+echo '<div class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>Your account details have been edited successfully.</p>
+</div>';
+}
+
+?>
+
+<form action="" method="post" >
+
     <h3> Add A New Client </h3>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="First Name" >
+            <input class="uk-input uk-form-width-large" type="text" name="firstname" value="" placeholder="First Name" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Last Name" >
+            <input class="uk-input uk-form-width-large" type="text" name="lastname" value="" placeholder="Last Name" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Address Line 1" >
+            <input class="uk-input uk-form-width-large" type="text" name="lastname" value="" placeholder="Address Line 1" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Address Line 2" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="Address Line 2" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Company Name" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="Company Name" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="City" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="City" >
         </div>
     </div>
     <div class="uk-margin">
@@ -42,17 +118,17 @@
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="State/Region" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="State/Region" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Postcode" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="Postcode" >
         </div>
     </div>
     <div class="uk-margin">
         <div class="uk-inline">
-            <input class="uk-input uk-form-width-large" type="text" value="" placeholder="Postcode" >
+            <input class="uk-input uk-form-width-large" type="text" value="" name="lastname" placeholder="Postcode" >
         </div>
     </div>
     <div class="uk-margin">
@@ -332,6 +408,7 @@
         </div>
     </div>
 
-        <input type="submit" value="Add New Client" name="add-client" class="uk-button uk-button-default">
-
+  
+          <input type="submit" value="Add New Client" name="btn-add-client" class="uk-button uk-button-primary">
+    </form>
 </div>

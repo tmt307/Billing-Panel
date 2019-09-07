@@ -20,6 +20,11 @@ textarea.uk-textarea.uk-form-width-large {
     color: white !important;
 }
 
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
+    padding-left: 40px !important;
+    color: #fafafa !important;
+}
+
 input.uk-input {
     color: red !important;
 }
@@ -27,7 +32,7 @@ input.uk-input {
 input.uk-input {
     border-radius: 20px;
     height: 34px;
-    color: white !important;
+    color: black !important;
     /* background: #0f2861; */
 }
 
@@ -56,7 +61,7 @@ input.uk-input {
 }
 
 .uk-width-1-4.uk-card.uk-card-default.uk-card-body {
-    background: #0d3283;
+    background: #255dda;
     color: white !important;
 }
 

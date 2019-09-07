@@ -33,6 +33,7 @@ if (isset($_POST['btn-register'])) {
 
 
     ";
+
     } 
 
     elseif($password != $confirm_password){
@@ -122,7 +123,7 @@ if (isset($_POST['btn-register'])) {
                         </div>
                     </form>
                     <p>   Already have an account? </p>
-                    <a href="login.php"><input type="button" class="uk-button uk-button-default" value="Login"></a>
+                    <a href="login.php"><input type="button" class="uk-button uk-button-primary" value="Login"></a>
                     <hr />
                     </fieldset>
                    </form>
