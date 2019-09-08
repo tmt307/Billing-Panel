@@ -43,10 +43,19 @@ a.uk-button.uk-button-default {
     border-radius: 20px;
 }
 
+.uk-table-middle, .uk-table-middle td {
+    vertical-align: middle!important;
+    color: white;
+}
+
 button.uk-button.uk-button-primary {
     color: white !important;
     border-radius: 50px;
     background: #0f2861 !important;
+}
+
+button.uk-button.uk-button-default {
+    background: #255dda !important;
 }
 
 input.uk-input {
@@ -78,6 +87,10 @@ li.uk-parent {
     color: #32d296;
 }
 
+.uk-button.uk-button-danger {
+    border-radius: 50px;
+    background: #a20909;
+}
 
 button.uk-button.uk-button-danger {
     border-radius: 50px;
@@ -91,6 +104,27 @@ button.uk-button.uk-button-danger {
     background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216…66%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A);
     background-repeat: no-repeat;
     background-position: 100% 50%;
+}
+
+
+.uk-button-success {
+    color: white !important;
+    border-radius: 50px;
+    background: #09a264 !important;
+}
+
+.uk-button-paid {
+    color: white !important;
+    border-radius: 50px;
+    background: #09a264 !important;
+}
+
+
+
+button.uk-button.uk-button-success {
+    color: white !important;
+    border-radius: 50px;
+    background: #09a264 !important;
 }
 
 button.uk-button.uk-button-paid {

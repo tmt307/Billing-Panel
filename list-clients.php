@@ -3,53 +3,81 @@
 
 <?php require_once('includes/navigation-bar.php'); ?>
 
+<?php $clients = $pdo->query("SELECT * FROM clients")->fetchAll(); 
+// and somewhere later:
+
+
+?>
+
+
+<?php ini_set('display_errors',1); error_reporting(E_ALL);
+
+ ?>
+
+
 
 <div class="uk-width-3-4 ">
     <div class="uk-card uk-card-primary uk-card-body">
+
+<?php if (isset($_GET['id'])) {
+$id = $_GET['id'];
+// echo $id;
+$sql = "DELETE FROM clients WHERE id=:id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array(':id' => $id));
+header("LOCATION: list-clients.php?deleted");
+}
+if(isset($_GET['deleted']))
+{
+echo '<div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p class="uk-text-capitalized">The client has been deleted successfully.</p>
+</div>';
+} ?>
+
+
         <h3> Client List </h3>
-        <table class="uk-table uk-table-middle uk-table-divider">
+        <table  width="100%" class="uk-table uk-table-middle  uk-table-justify  uk-table-divider">
             <thead>
                 <tr>
-                    <th >#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Company Name</th>
-                    <th>Email Address</th>
-                    <th>Total Income</th>
-                    <th>Created Date</th>
-                    <th></th>
-                    <th></th>
+                    <th  >#</th>
+                    <th class="uk-table-expand" >First Name</th>
+                    <th class="uk-table-expand" >Last Name</th>
+                    <th class="uk-table-expand" >Company Name</th>
+                    <th class="uk-table-expand" >Email Address</th>
+                    <th class="uk-table-expand" >Total Income</th>
+                    <th class="uk-table-expand" >Created Date</th>
+                    <th class="uk-table-expand"> Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <?php  foreach ($clients as $client) {?>
+            <tbody >
                 <tr>
-                    <td>1244</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>EYPIC Dzn</td>
-                    <td>contact@epyicdzn.com</td>
-                    <td>£150.00</td>
-                    <td>01/12/2018</td>
-                    <td><button class="uk-button uk-button-default" type="button">View Client</button></td>
-                    <td><button class="uk-button uk-button-default" type="button">Edit Client</button></td>
+                    <td><?php echo $client['id'] ?></td>
+                    <td><?php echo $client['firstname'] ?></td>
+                    <td><?php echo $client['lastname'] ?></td>
+                    <td><?php echo $client['company_name'] ?></td>
+                    <td><?php echo $client['email'];?></td>
+                    <td>£242</td>
+                    <td>
+                        <?php $date = new DateTime($client['created_date']);
+                        $dateFormatted = $date->format('d/m/Y');
+                        echo $dateFormatted; ?>
+                    </td>
+                    <td><button class="uk-button uk-button-success "
+                        style="margin:5px;width: 200px" type="button">View Client</button>
+                        <br />  <button     style="margin:5px;width: 200px" class="uk-button uk-button-default" type="button">Edit Client</button>
+
+
+
+                <form action="list-clients.php?id=<?php echo $client['id'];?>" method="post"> 
+                    <input style="margin:5px;width: 200px" class="uk-button uk-button-danger" name="btn-delete" type="submit" onclick="return confirm('Are you sure you want delete this client?')" value="Delete Client">
+                </form></td>
                 </tr>
             </tbody>
-            <tbody>
-                <tr>
-                    <td>1244</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>EYPIC Dzn</td>
-                    <td>contact@epyicdzn.com</td>
-                    <td>£150.00</td>
-                    <td>01/12/2018</td>
-                    <td><button class="uk-button uk-button-default" type="button">View Client</button></td>
-                    <td><button class="uk-button uk-button-default" type="button">Edit Client</button></td>
-                </tr>
-            </tbody>
+            <?php };?>
         </table>
     </div>
 </div>
-
 <?php require_once('includes/footer.php'); ?>
 
