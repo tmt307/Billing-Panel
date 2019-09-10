@@ -3,12 +3,6 @@
 
 <?php require_once('includes/navigation-bar.php'); ?>
 
-<style type="text/css">
-  .ck-editor__editable {
-    min-height: 259px;
-}
-</style>
-
 
 <div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
   <h3>Create a new invoice </h3>
@@ -16,36 +10,18 @@
 <?php
 ini_set('display_errors',1); error_reporting(E_ALL);
 
-$price = '';
-$qty = '';
-$total = '';
-$description_of_invoice = '';
-$client_id = '';
-$currency = '';
-$taxable = '';
-$terms_of_service = '';
-$invoice_status = '';
-$type_of_invoice = '';
-$due_date = '';
-$payment_terms_date = '';
-$payment_type = '';
+$name = '';
+$description_of_service_product = '';
+$stock_amount = '';
+$staff_id = '';
+
 $staff_id = $row['userID'];
 
-if (isset($_POST['btn-create-invoice'])) {
+if (isset($_POST['btn-add-new-service'])) {
 
-$price = $_POST['price'];
-$qty = $_POST['qty'];
-$total = $_POST['total'];
-$description_of_invoice = $_POST['description_of_invoice'];
-$client_id = $_POST['client_id'];
-$currency = $_POST['currency'];
-$taxable = $_POST['taxable'];
-$terms_of_service = $_POST['terms_of_service'];
-$invoice_status = $_POST['invoice_status'];
-$type_of_invoice = $_POST['type_of_invoice'];
-$due_date = $_POST['due_date'];
-$payment_terms_date = $_POST['payment_terms_date'];
-$payment_type = $_POST['payment_type'];
+$name = $_POST['name'];
+$description_of_service_product = $_POST['description_of_service_product'];
+$stock_amount = $_POST['stock_amount'];
 $staff_id = $row['userID'];
 
 
@@ -53,22 +29,12 @@ $staff_id = $row['userID'];
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-$stmt = $pdo->prepare("INSERT INTO invoices (price,qty,total,description_of_invoice,client_id,currency,taxable,terms_of_service,invoice_status,type_of_invoice, payment_type,due_date,payment_terms_date,staff_id) 
+$stmt = $pdo->prepare("INSERT INTO invoices (name,description_of_service_product,stock_amount,staff_id) 
 
-VALUES (:price, :qty, :total, :description_of_invoice, :client_id, :currency, :taxable, :terms_of_service, :invoice_status, :type_of_invoice, :payment_type, :due_date, :payment_terms_date, :staff_id)");
-    $stmt->bindParam(':price', $price);
-    $stmt->bindParam(':qty', $qty);
-    $stmt->bindParam(':total', $total);
-    $stmt->bindParam(':description_of_invoice', $description_of_invoice);
-    $stmt->bindParam(':client_id', $client_id);
-    $stmt->bindParam(':currency', $currency);
-    $stmt->bindParam(':taxable', $taxable);
-    $stmt->bindParam(':terms_of_service', $terms_of_service);
-    $stmt->bindParam(':invoice_status', $invoice_status);
-    $stmt->bindParam(':type_of_invoice', $type_of_invoice);
-    $stmt->bindParam(':payment_type', $payment_type);
-    $stmt->bindParam(':due_date', $due_date);
-    $stmt->bindParam(':payment_terms_date', $payment_terms_date);
+VALUES (:name, :description_of_service_product, :total, :staff_id)");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':description_of_service_product', $description_of_service_product);
+    $stmt->bindParam(':stock_amount', $stock_amount);
     $stmt->bindParam(':staff_id', $staff_id);
     $stmt->execute();
 

@@ -25,6 +25,12 @@ textarea.uk-textarea.uk-form-width-large {
     color: #fafafa !important;
 }
 
+
+.uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
+    padding-left: 40px !important;
+    color: #000000 !important;
+}
+
 input.uk-input {
     color: red !important;
 }
@@ -58,11 +64,7 @@ button.uk-button.uk-button-default {
     background: #255dda !important;
 }
 
-input.uk-input {
-    border-radius: 20px;
-    height: 34px;
-    color: white !important;
-}
+
 
 .uk-card-primary.uk-card-body, .uk-card-primary>:not([class*=uk-card-media]), .uk-card-secondary.uk-card-body, .uk-card-secondary>:not([class*=uk-card-media]), .uk-light, .uk-offcanvas-bar, .uk-overlay-primary, .uk-section-primary:not(.uk-preserve-color), .uk-section-secondary:not(.uk-preserve-color), .uk-tile-primary:not(.uk-preserve-color), .uk-tile-secondary:not(.uk-preserve-color) {
     color: rgba(255,255,255,.7);
@@ -104,6 +106,7 @@ button.uk-button.uk-button-danger {
     background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216…66%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A);
     background-repeat: no-repeat;
     background-position: 100% 50%;
+    border-radius: 50px;
 }
 
 
@@ -152,9 +155,10 @@ button.uk-button.uk-button-default {
 }
 
 .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
-    background: #333333 !important;
+ background: #255dda !important;
     border-radius: var(--ck-border-radius);
     border-top-left-radius: 0;
+    border: 10px !important;
     border-top-right-radius: 0;
 }
 

@@ -16,6 +16,7 @@ $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
+
 <div class="uk-grid-collapse" uk-grid>
   <div id="sidebar" class="uk-width-1-4 uk-width-expand@m uk-padding-small uk-section-default">
     <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
@@ -109,6 +110,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <a href="#"> <i class="fas fa-cog"></i>  Settings</a>
         <ul class="uk-nav-sub">
           <li><a href="#">General Settings</a></li>
+          <li><a href="currancies.php">Manage Currancies</a></li>
           <li><a href="#">Payment Gateways</a></li>
           <li><a href="#">Google Recaptcha</a></li>
           <li><a href="#">Email Templates</a></li>

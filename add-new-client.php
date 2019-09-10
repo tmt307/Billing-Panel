@@ -8,8 +8,7 @@
 <?php
 ini_set('display_errors',1); error_reporting(E_ALL);
 
-print_r($_POST);
-
+//print_r($_POST);
 
 $staff_id = '';
 $firstname = '';
@@ -26,25 +25,7 @@ $payment_type = '';
 $password = '';
 $staff_id = '';
 
-
-
-
 if (isset($_POST['btn-add-client'])) {
-
-// $staff_id = '';
-// $firstname = '';
-// $lastname = '';
-// $address_line_1 = '';
-// $address_line_2 = '';
-// $company_name = '';
-// $city = '';
-// $state_region = '';
-// $email = '';
-// $postcode = '';
-// $phone_number = '';
-// $payment_type = '';
-// $password = '';
-// $staff_id = '';
 
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
@@ -64,7 +45,7 @@ $staff_id = $row['userID'];
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-    $stmt = $pdo->prepare("INSERT INTO clients (firstname, lastname, email, address_line_1,address_line_2,company_name,city,state_region,postcode,phone_number,payment_type,password,staff_id) 
+$stmt = $pdo->prepare("INSERT INTO clients (firstname, lastname, email, address_line_1,address_line_2,company_name,city,state_region,postcode,phone_number,payment_type,password,staff_id) 
 
 VALUES ( :firstname, :lastname,  :email,  :address_line_1, :address_line_2, :company_name, :state_region, :city, :postcode, :phone_number, :payment_type, :password, :staff_id)");
     $stmt->bindParam(':firstname', $firstname);
@@ -80,11 +61,6 @@ VALUES ( :firstname, :lastname,  :email,  :address_line_1, :address_line_2, :com
     $stmt->bindParam(':payment_type', $payment_type);
     $stmt->bindParam(':password', $password);
     $stmt->bindParam(':staff_id', $staff_id);
-
-// // insert a row
-//     $firstname = $_POST["firstname"];
-//     $lastname = $_POST["lastname"];
-
     $stmt->execute();
 
     echo "New records created successfully";
@@ -94,10 +70,6 @@ else {
 
 var_dump($pdo->errorInfo());
 }
-// print_r($sql);
-
-// header("LOCATION: add-new-client.php?successful");
-
 
 if(isset($_GET['successful']))
 {
