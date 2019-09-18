@@ -110,7 +110,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <a href="#"> <i class="fas fa-cog"></i>  Settings</a>
         <ul class="uk-nav-sub">
           <li><a href="#">General Settings</a></li>
-          <li><a href="currancies.php">Manage Currancies</a></li>
+          <li><a href="currencies.php">Manage Currancies</a></li>
           <li><a href="#">Payment Gateways</a></li>
           <li><a href="#">Google Recaptcha</a></li>
           <li><a href="#">Email Templates</a></li>
