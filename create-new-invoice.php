@@ -31,6 +31,20 @@ $payment_terms_date = '';
 $payment_type = '';
 $staff_id = $row['userID'];
 
+
+ 
+$seed = str_split('abcdefghijklmnopqrstuvwxyz'
+                     .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                     .'0123456789'); // and any other characters
+    shuffle($seed); // probably optional since array_is randomized; this may be redundant
+    $rand = '';
+    foreach (array_rand($seed, 2) as $k) $rand .= $seed[$k];
+ 
+   // echo $rand;
+
+
+//echo $invoicekey;
+
 if (isset($_POST['btn-create-invoice'])) {
 
 $price = $_POST['price'];
@@ -46,16 +60,20 @@ $type_of_invoice = $_POST['type_of_invoice'];
 $due_date = $_POST['due_date'];
 $payment_terms_date = $_POST['payment_terms_date'];
 $payment_type = $_POST['payment_type'];
-$staff_id = $row['userID'];
+
+$invoicekey = $_POST['client_id'] . $rand;
+
+
+$staff_id = $_POST['client_id'];
 
 
 // $LAST_ID = $this->conn->lastInsertId();
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-$stmt = $pdo->prepare("INSERT INTO invoices (price,qty,total,description_of_invoice,client_id,currency,taxable,terms_of_service,invoice_status,type_of_invoice, payment_type,due_date,payment_terms_date,staff_id) 
+$stmt = $pdo->prepare("INSERT INTO invoices (price,qty,total,description_of_invoice,client_id,currency,taxable,terms_of_service,invoice_status,type_of_invoice, payment_type,due_date,payment_terms_date,staff_id,invoicekey) 
 
-VALUES (:price, :qty, :total, :description_of_invoice, :client_id, :currency, :taxable, :terms_of_service, :invoice_status, :type_of_invoice, :payment_type, :due_date, :payment_terms_date, :staff_id)");
+VALUES (:price, :qty, :total, :description_of_invoice, :client_id, :currency, :taxable, :terms_of_service, :invoice_status, :type_of_invoice, :payment_type, :due_date, :payment_terms_date, :staff_id, :invoicekey)");
     $stmt->bindParam(':price', $price);
     $stmt->bindParam(':qty', $qty);
     $stmt->bindParam(':total', $total);
@@ -69,6 +87,7 @@ VALUES (:price, :qty, :total, :description_of_invoice, :client_id, :currency, :t
     $stmt->bindParam(':payment_type', $payment_type);
     $stmt->bindParam(':due_date', $due_date);
     $stmt->bindParam(':payment_terms_date', $payment_terms_date);
+   $stmt->bindParam(':invoicekey', $invoicekey);
     $stmt->bindParam(':staff_id', $staff_id);
     $stmt->execute();
 
@@ -77,8 +96,11 @@ echo '<div class="uk-alert-success" uk-alert>
     <p class="uk-text-capitalize">The invoice has been created Successfully</p>
 </div>';
 
+require 'generated-pdf.php';
+
 
 }
+
 
 else {
 
@@ -89,7 +111,7 @@ var_dump($pdo->errorInfo());
 ?>
 
 
-<form action="" method="post" >
+<form action="create-pdf.php" method="post" >
 
   <br />
   <div  class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
@@ -121,16 +143,13 @@ var_dump($pdo->errorInfo());
     
     <div class="uk-width-1-2">
        <select required name="taxable" class="uk-select uk-form-width-large" >
-       <option  value=""  disabled selected>Taxable</option>
+       <option  value="" disabled selected>Taxable</option>
         <option  value="yes" >Yes</option>
         <option  value="no" >No</option>
       </select>
     </div>
   </div>
         <br />
-
-
-
 
  <textarea name="terms_of_service" id="editor2" placeholder="Terms Of Service"> </textarea>
 
@@ -143,7 +162,7 @@ var_dump($pdo->errorInfo());
     <option value="" disabled selected>Select a Client</option>
     <?php $clients = $pdo->query("SELECT * FROM clients")->fetchAll(); ?>
     <?php  foreach ($clients as $client) {?>
-    <option  name="client_id"  value="<?php echo $client['id']; ?>"><?php echo $client['firstname']; ?> <?php echo $client['lastname']; ?>  </option>
+    <option  name="client_id"  value="<?php echo $client['id']; ?>"><?php echo $client['firstname']; ?> <?php echo $client['lastname']; ?> ( <?php echo $client['company_name']; ?> ) </option>
     <?php };?>
   </select>
 
@@ -518,8 +537,10 @@ var_dump($pdo->errorInfo());
            <br />
       <select  name="type_of_invoice" class="uk-select">
         <option>Select Type of invoice</option>
-        <option  value="Recuring">Recuring</option>
-        <option  value="One Payment">One Payment</option>
+            <?php $currencies = $pdo->query("SELECT * FROM currencies")->fetchAll();
+                  foreach ($currencies as $currency) {?>
+            <option  name="currency" value="<?php echo $currency['currency_name']; ?>"><?php echo $currency['currency_name']; ?></option>
+        <?php }; ?>
       </select>
     </div>
 

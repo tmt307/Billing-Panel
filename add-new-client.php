@@ -397,8 +397,11 @@ echo '<div class="uk-alert-success" uk-alert>
     <div class="uk-margin">
         <select class="uk-select uk-form-width-large" name="currency" placeholder="Currency">
             <option name="currency" value="Select a Payment Method">Currency </option>
-            <option  name="currency" value="Paypal">USD</option>
-            <option  name="currency" value="Bank Transfer">GBP</option>
+
+            <?php $currencies = $pdo->query("SELECT * FROM currencies")->fetchAll();
+                  foreach ($currencies as $currency) {?>
+            <option  name="currency" value="<?php echo $currency['currency_name']; ?>"><?php echo $currency['currency_name']; ?></option>
+        <?php }; ?>
         </select>
     </div>
 

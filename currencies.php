@@ -51,8 +51,23 @@ else {
 var_dump($pdo->errorInfo());
 }
 
+ if (isset($_GET['id'])) {
+$id = $_GET['id'];
+// echo $id;
+$sql = "DELETE FROM currencies WHERE id=:id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array(':id' => $id));
+header("LOCATION: currencies.php?deleted");
+}
+if(isset($_GET['deleted']))
+{
+echo '<div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p class="uk-text-capitalized">The currency has been deleted successfully.</p>
+</div>';
+} ?>
 
-?>
+
 
 
 
@@ -85,10 +100,9 @@ var_dump($pdo->errorInfo());
 <h3>List of Currencies</h3> 
 
 
-        <table style="background-color: #2755ba  !important;width: 100%;" class="uk-table uk-table-middle uk-table-divider">
+        <table style="background-color: #2755ba  !important;width: 100%;" class=" uk-table-middle uk-table-divider">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Currency Name</th>
                     <th>Currency Symbol</th>
                     <th>Placement Of Currency</th>
@@ -100,12 +114,13 @@ var_dump($pdo->errorInfo());
          	      foreach ($currencies as $currency) {?>
              <tr>
     
-                <th><?php echo $currency['id']; ?></th> 
                 <th><?php echo $currency['currency_name']; ?></th>
                 <th><?php echo $currency['currency_symbol']; ?></th>
                 <th><?php echo $currency['placement_of_currency']; ?></th>
-       			<th> <input style="margin:5px;width: 200px;width: 100%;" class="uk-button uk-button-danger" name="btn-delete" type="submit" onclick="return confirm('Are you sure you want delete this Currency?')" value="Delete"></th>
+                <form action="currencies.php?id=<?php echo $currency['id'];?>" method="post"> 
+       			<th> <input style="margin:5px;width: 200px;width: 100%;" class="uk-button uk-button-danger" name="deleted" type="submit" onclick="return confirm('Are you sure you want delete this Currency?')" value="Delete"></th>
                 </tr>  	   <?php }; ?>
+            </form>
 		</table>
 </div>
 

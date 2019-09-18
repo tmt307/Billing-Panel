@@ -8,7 +8,7 @@
   <h3>Create a new invoice </h3>
 
 <?php
-ini_set('display_errors',1); error_reporting(E_ALL);
+//ini_set('display_errors',1); error_reporting(E_ALL);
 
 $name = '';
 $description_of_service_product = '';
