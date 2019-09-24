@@ -5,6 +5,9 @@ require_once("vendor/pdf/autoload.php");  ?>
 
 
 <?php 
+
+
+
 /* Start to develop here. Best regards https://php-download.com/ */
 // $id = $_GET['id'];
 $invoicekey = $_POST['invoicekey'];
@@ -189,4 +192,8 @@ $mpdf->SetDisplayMode('fullpage');
 $mpdf->WriteHTML($html);
 $mpdf->Output('invoices/invoice-'.$invoice['id'].'-'.$invoice['invoicekey'].'.pdf', 'F');
 }; };
+
+
+
+
 ?>

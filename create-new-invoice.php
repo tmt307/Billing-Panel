@@ -42,7 +42,6 @@ $seed = str_split('abcdefghijklmnopqrstuvwxyz'
  
    // echo $rand;
 
-
 //echo $invoicekey;
 
 if (isset($_POST['btn-create-invoice'])) {
@@ -96,7 +95,7 @@ echo '<div class="uk-alert-success" uk-alert>
     <p class="uk-text-capitalize">The invoice has been created Successfully</p>
 </div>';
 
-require 'generated-pdf.php';
+// require 'generated-pdf.php';
 
 
 }
@@ -111,7 +110,7 @@ var_dump($pdo->errorInfo());
 ?>
 
 
-<form action="create-pdf.php" method="post" >
+<form action="create-new-invoice.php" method="post" >
 
   <br />
   <div  class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
