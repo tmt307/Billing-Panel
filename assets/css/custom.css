@@ -68,7 +68,7 @@ button.uk-button.uk-button-default {
 
 .uk-card-primary.uk-card-body, .uk-card-primary>:not([class*=uk-card-media]), .uk-card-secondary.uk-card-body, .uk-card-secondary>:not([class*=uk-card-media]), .uk-light, .uk-offcanvas-bar, .uk-overlay-primary, .uk-section-primary:not(.uk-preserve-color), .uk-section-secondary:not(.uk-preserve-color), .uk-tile-primary:not(.uk-preserve-color), .uk-tile-secondary:not(.uk-preserve-color) {
     color: rgba(255,255,255,.7);
-    background: #0d3283;
+    background: #001954;
 }
 
 .uk-width-1-4.uk-card.uk-card-default.uk-card-body {
