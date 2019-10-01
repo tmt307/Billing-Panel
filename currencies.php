@@ -5,7 +5,7 @@
 
 
 <div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
-  <h3>Create a new invoice </h3>
+  <h3>Add new currency  </h3>
 
 <?php
 ini_set('display_errors',1); error_reporting(E_ALL);
@@ -95,12 +95,12 @@ echo '<div class="uk-alert-danger" uk-alert>
 </form>
 </div>
 
-<div class="uk-width-1-4 uk-card uk-card-default uk-card-body" style="background-color: #2755ba !important;" >
+<div class="uk-width-1-3  uk-card uk-card-default uk-card-body" style="background-color: #132653 !important !important;" >
 
 <h3>List of Currencies</h3> 
 
 
-        <table style="background-color: #2755ba  !important;width: 100%;" class=" uk-table-middle uk-table-divider">
+        <table style="background-color: #132653  !important;width: 100%;" class=" uk-table-middle uk-table-divider">
             <thead>
                 <tr>
                     <th>Currency Name</th>

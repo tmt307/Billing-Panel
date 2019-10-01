@@ -28,7 +28,7 @@ textarea.uk-textarea.uk-form-width-large {
 
 .uk-form-icon:not(.uk-form-icon-flip)~.uk-input {
     padding-left: 40px !important;
-    color: #000000 !important;
+    color: #cacaca !important;
 }
 
 input.uk-input {
@@ -40,6 +40,10 @@ input.uk-input {
     height: 34px;
     color: black !important;
     /* background: #0f2861; */
+    background-color: rgba(255,255,255,.1);
+    color: rgba(255,255,255,0.5);
+    background-clip: padding-box;
+    border-color: rgba(255,255,255,.2);
 }
 
 a.uk-button.uk-button-default {
@@ -67,7 +71,7 @@ button.uk-button.uk-button-default {
 
 
 .uk-card-primary.uk-card-body, .uk-card-primary>:not([class*=uk-card-media]), .uk-card-secondary.uk-card-body, .uk-card-secondary>:not([class*=uk-card-media]), .uk-light, .uk-offcanvas-bar, .uk-overlay-primary, .uk-section-primary:not(.uk-preserve-color), .uk-section-secondary:not(.uk-preserve-color), .uk-tile-primary:not(.uk-preserve-color), .uk-tile-secondary:not(.uk-preserve-color) {
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,0.5);
     background: #001954;
 }
 
@@ -107,6 +111,10 @@ button.uk-button.uk-button-danger {
     background-repeat: no-repeat;
     background-position: 100% 50%;
     border-radius: 50px;
+    background-color: rgba(255,255,255,.1);
+    color: rgba(255,255,255,0.5);
+    background-clip: padding-box;
+    border-color: rgba(255,255,255,.2);
 }
 
 
@@ -136,15 +144,19 @@ button.uk-button.uk-button-paid {
     background: #09a264 !important;
 }
 
+input.uk-input.uk-form-width-large {
+    color: white !important;
+}
+
 button.uk-button.uk-button-default {
-    background: #094ca2;
+    background: #475d90 !important;
     color: #ffffff !important;
     border: 0px;
     border-radius: 50px;
 }
 
 .uk-button-primary {
-    background-color: #1e87f0 !important;
+    background: #475d90 !important;
     color: #fff !important;
     border: 1px solid transparent;
     border-radius: 250px;
@@ -154,8 +166,15 @@ button.uk-button.uk-button-default {
     background: var(--ck-color-button-on-background);
 }
 
+input#calendar-tomorrow {
+    background-color: rgba(255,255,255,.1);
+    background-clip: padding-box;
+    border-color: rgba(255,255,255,.2);
+    color: rgba(255,255,255,0.5) !important;
+}
+
 .ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
- background: #255dda !important;
+    background: #132653 !important;
     border-radius: var(--ck-border-radius);
     border-top-left-radius: 0;
     border: 10px !important;

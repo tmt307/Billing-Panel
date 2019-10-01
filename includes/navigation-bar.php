@@ -18,10 +18,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div class="uk-grid-collapse" uk-grid>
-  <div id="sidebar" class="uk-width-1-4 uk-width-expand@m uk-padding-small uk-section-default">
+  <div id="sidebar" class="uk-width-1-6  uk-padding-small uk-section-default">
     <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-      <h3>Account Dashboard </h3>
-      <table>
+<!--       <h3>Account Dashboard </h3>
+ -->      <table>
         <tbody>
           <tr>
             <td><img src="assets/images/profile.png"  style="border-radius: 50%; width: 50px;margin-right:10px;"></td>
@@ -54,7 +54,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       <li class="uk-parent">
         <a href="#"> <i class="fas fa-users"></i>  Clients</a>
         <ul class="uk-nav-sub">
-          <li><a href="add-new-client.php">Add New Client</a></li>
+          <li><a href="client.php">Add New Client</a></li>
           <li><a href="list-clients.php">List Clients</a></li>
         </ul>
       </li>
@@ -62,7 +62,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       <li class="uk-parent">
         <a href="#"> <i class="fas fa-file-invoice"></i>  Billing</a>
         <ul class="uk-nav-sub">
-          <li><a href="create-new-invoice.php">Create New Invoice</a></li>
+          <li><a href="invoice.php">Create New Invoice</a></li>
           <li><a href="list-invoices.php">List Invoices</a></li>
         </ul>
       </li>
@@ -100,7 +100,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         </ul>
       </li>
       <li class="uk-parent">
-        <a href="#"> <i class="fas fa-tools"></i>  Utilites</a>
+        <a href="#"> <i class="fas fa-tools"></i> Utilites</a>
         <ul class="uk-nav-sub">
           <li><a href="#">Activity Log</a></li>
           <li><a href="#">Server Status</a></li>
@@ -111,7 +111,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         <ul class="uk-nav-sub">
           <li><a href="#">General Settings</a></li>
           <li><a href="currencies.php">Manage Currancies</a></li>
-          <li><a href="#">Payment Gateways</a></li>
+          <li><a href="payment-gateways.php">Payment Gateways</a></li>
           <li><a href="#">Google Recaptcha</a></li>
           <li><a href="#">Email Templates</a></li>
           <li><a href="#">Automation Settings</a></li>

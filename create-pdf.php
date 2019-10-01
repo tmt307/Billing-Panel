@@ -8,8 +8,6 @@ require_once("vendor/pdf/autoload.php");  ?>
 
 
 
-/* Start to develop here. Best regards https://php-download.com/ */
-// $id = $_GET['id'];
 $invoicekey = $_POST['invoicekey'];
 
 
