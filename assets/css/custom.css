@@ -3,6 +3,24 @@
     color: #f0506e;
 }
 
+
+.uk-modal-footer.uk-text-right {
+    background: #132653;
+}
+
+.uk-modal-header {
+    background: #132653;
+    color: white !important;
+}
+
+h2.uk-modal-title {
+    color: white;
+}
+
+input.uk-input.uk-form-width-large {
+    background-color: rgba(255,255,255,-0.7);
+}
+
 .welcome-back-text{
     color: white;
 }
