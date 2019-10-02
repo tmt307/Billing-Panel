@@ -3,7 +3,12 @@
     color: #f0506e;
 }
 
-
+.add-client-model {
+    background: #132653;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 .uk-modal-footer.uk-text-right {
     background: #132653;
 }
@@ -56,7 +61,7 @@ input.uk-input {
 input.uk-input {
     border-radius: 20px;
     height: 34px;
-    color: black !important;
+    color: #d6aeae !important;
     /* background: #0f2861; */
     background-color: rgba(255,255,255,.1);
     color: rgba(255,255,255,0.5);
