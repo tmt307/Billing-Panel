@@ -37,8 +37,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
   
 
-<li class="uk-parent">
-  <a href="index.php" ><i class="fas fa-home"></i>  Dashboard</a>
+<li style="font-size: 15px;">
+  <a href="index.php"  ><i class="fas fa-home"></i>  Dashboard</a>
 </li>
 
       <li class="uk-parent">
