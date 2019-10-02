@@ -57,10 +57,10 @@ echo '<div class="uk-alert-success" uk-alert>
 </div>
 </form>
 
-<div class="uk-width-1-4 uk-card uk-card-default uk-card-body" >
+<div class="uk-width-1-3 uk-card uk-card-default uk-card-body" >
 <h3> Edit Profile Picture </h3>
 <div class="js-upload" uk-form-custom>
 	<input type="file" multiple>
-	<button class="uk-button uk-button-default" type="button" ntabindex="-1">Select</button>
+	<button class="uk-button uk-button-default" type="button" >Select</button>
 </div>
 </div>
