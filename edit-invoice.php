@@ -1,11 +1,3 @@
-<?php if (isset($_GET['invoicekey'])) { 
-
-$invoicekey = $_GET['invoicekey'];
-$invoices = $pdo->query("SELECT * FROM invoices WHERE invoicekey = '$invoicekey' ")->fetchAll(); 
-
-
-foreach ($invoices as $getinvoice) {
-    
 
 <?php require_once('includes/header.php'); ?>
 
@@ -17,12 +9,16 @@ foreach ($invoices as $getinvoice) {
 }
 </style>
 
-<?php// ini_set('display_errors',1); error_reporting(E_ALL);
-?>
-<div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
-  <h3>Create a new invoice </h3>
-<?php
 
+<?php if (isset($_GET['invoicekey'])) { 
+$invoicekey = $_GET['invoicekey'];
+$invoices = $pdo->query("SELECT * FROM invoices WHERE invoicekey = '$invoicekey' ")->fetchAll(); 
+
+
+foreach ($invoices as $getinvoice) { ?>
+<div class="uk-width-1-2 uk-card uk-card-primary uk-card-body" >
+  <h3>Editing invoice #<?php echo $getinvoice['id']; ?> </h3>
+<?php
 $price = '';
 $qty = '';
 $total = '';
@@ -37,24 +33,27 @@ $due_date = '';
 $payment_terms_date = '';
 $payment_type = '';
 $invoice_created = '';
-$staff_id = $row['userID'];
+$staff_id = $getinvoice['staff_id'];
 
 
- 
-$seed = str_split('abcdefghijklmnopqrstuvwxyz'
-.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
- .'0123456789'); 
+// $seed = str_split('abcdefghijklmnopqrstuvwxyz'
+// .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+//  .'0123456789'); 
 
-shuffle($seed); 
-$rand = '';
-foreach (array_rand($seed, 2) as $k) $rand .= $seed[$k];
+// shuffle($seed); 
+// $rand = '';
+// foreach (array_rand($seed, 2) as $k) $rand .= $seed[$k];
 
    // echo $rand;
 
 //echo $invoicekey;
 
-if (isset($_POST['btn-create-invoice'])) {
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
+if (isset($_POST['btn-create-invoice'])) {
+$id = $_GET['invoicekey'];
 $price = $_POST['price'];
 $qty = $_POST['qty'];
 $total = $_POST['total'];
@@ -68,39 +67,60 @@ $type_of_invoice = $_POST['type_of_invoice'];
 $due_date = $_POST['due_date'];
 $payment_terms_date = $_POST['payment_terms_date'];
 $payment_type = $_POST['payment_type'];
-$invoicekey = $_POST['client_id'] . $rand;
 $invoice_created =  date("Y-m-d");
 $staff_id = $_POST['client_id'];
+$id = $getinvoice['id'];
 
 
+// echo $id;
 // $LAST_ID = $this->conn->lastInsertId();
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-$stmt = $pdo->prepare("INSERT INTO invoices (price,qty,total,description_of_invoice,client_id,currency,taxable,terms_of_service,invoice_status,type_of_invoice, payment_type,due_date, invoice_created, payment_terms_date,staff_id,invoicekey) 
 
-VALUES (:price, :qty, :total, :description_of_invoice, :client_id, :currency, :taxable, :terms_of_service, :invoice_status, :type_of_invoice, :payment_type, :due_date, :invoice_created, :payment_terms_date, :staff_id, :invoicekey)");
-    $stmt->bindParam(':price', $price);
-    $stmt->bindParam(':qty', $qty);
-    $stmt->bindParam(':total', $total);
-    $stmt->bindParam(':description_of_invoice', $description_of_invoice);
-    $stmt->bindParam(':client_id', $client_id);
-    $stmt->bindParam(':currency', $currency);
-    $stmt->bindParam(':taxable', $taxable);
-    $stmt->bindParam(':terms_of_service', $terms_of_service);
-    $stmt->bindParam(':invoice_status', $invoice_status);
-    $stmt->bindParam(':type_of_invoice', $type_of_invoice);
-    $stmt->bindParam(':payment_type', $payment_type);
-    $stmt->bindParam(':due_date', $due_date);
-    $stmt->bindParam(':invoice_created', $invoice_created);
-    $stmt->bindParam(':payment_terms_date', $payment_terms_date);
-    $stmt->bindParam(':invoicekey', $invoicekey);
-    $stmt->bindParam(':staff_id', $staff_id);
-    $stmt->execute();
+$sql = "UPDATE invoices SET price=:price,
+qty=:qty,
+total=:total,
+description_of_invoice=:description_of_invoice,
+client_id=:client_id,
+currency=:currency,
+taxable=:taxable,
+terms_of_service=:terms_of_service,
+invoice_status=:invoice_status,
+type_of_invoice=:type_of_invoice,
+payment_type=:payment_type,
+due_date=:due_date,
+invoice_created=:invoice_created,
+payment_terms_date=:payment_terms_date,
+staff_id=:staff_id,
+invoicekey=:invoicekey
+WHERE id=:id";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array(
+':price' => $price,
+':qty' => $qty,
+':total' => $total,
+':description_of_invoice' => $description_of_invoice,
+':client_id' => $client_id,
+':currency' => $currency,
+':taxable' => $taxable,
+':terms_of_service' => $terms_of_service,
+':invoice_status' => $invoice_status,
+':type_of_invoice' => $type_of_invoice,
+':payment_type' => $payment_type,
+':due_date' => $due_date,
+':invoice_created' => $invoice_created,
+':payment_terms_date' => $payment_terms_date,
+':staff_id' => $staff_id,
+':invoicekey' => $invoicekey,
+':id' => $id, 
+
+));
 
 echo '<div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>
-    <p class="uk-text-capitalize">The invoice has been created Successfully</p>
+    <p class="uk-text-capitalize">Invoice #'.$id.' has been updated Successfully</p>
 </div>';
 
 }
@@ -119,11 +139,11 @@ var_dump($pdo->errorInfo());
 
 
 
-<form action="invoice.php" method="post" >
+<form action="" method="post" >
     <br />
     <div  class="uk-child-width-expand  uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-3@s">
-            <input class="uk-input" id="price" type="text" required oninput="setTwoNumberDecimal(this)" step="0.01"  value="0.00" type="number" name="price" oninput="calculate();" placeholder="Price">
+            <input class="uk-input" id="price" type="text" required oninput="setTwoNumberDecimal(this)" step="0.01"  value="<?php if (!empty($getinvoice['price'])) { echo $getinvoice['price']; } ?>0.00" type="number" name="price" oninput="calculate();" placeholder="Price">
         </div>
         <div class="uk-width-1-3@s">
             <input class="uk-input" type="text"  oninput="calculate();" id="qty" required name="qty" placeholder="Quantity">
@@ -156,21 +176,10 @@ var_dump($pdo->errorInfo());
     <textarea name="terms_of_service" id="editor2" placeholder="Terms Of Service"> </textarea>
 </div>
 <div class="uk-width-1-3  uk-card uk-card-default uk-card-body" >
-    <h3> Select a client </h3>
-    <select class="uk-select uk-select  uk-form-width-large " required name="client_id" >
-        <option value="" disabled selected>Select a Client</option>
-        <?php $clients = $pdo->query("SELECT * FROM clients")->fetchAll(); ?>
-        <?php  foreach ($clients as $client) {?>
-        <option  name="client_id"  value="<?php echo $client['id']; ?>"><?php echo $client['firstname']; ?> <?php echo $client['lastname']; ?> ( <?php echo $client['company_name']; ?> ) </option>
-        <?php };?>
-    </select>
-    
+
 </select>
-<h3>OR </h3>
-<a class="uk-button uk-button-default " href="#modal-sections"  uk-toggle>Add A New Client</a>
 
 <br/>
-
 <br/>
 <div class="uk-width-1-1">
     <select reqiuired name="invoice_status" class="uk-select">
@@ -282,12 +291,4 @@ ClassicEditor.create(document.querySelector("#editor2"), {
 
 </script>
 
-<?php require('invoice-add-new-client.php'); ?>
-
-
-
-   
-
-
- ?>
 <?php }; } ?>
