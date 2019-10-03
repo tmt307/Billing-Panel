@@ -7,7 +7,8 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="">
 	<meta name="author" content="Thomas Turner">
-	
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
 	<!-- CSS Stylesheets --->
 	<link href="assets/css/font-awesome-5.css " rel="stylesheet">
 	<link href="assets/css/uikit.min.css" rel="stylesheet">

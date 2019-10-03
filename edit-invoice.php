@@ -58,7 +58,7 @@ $price = $_POST['price'];
 $qty = $_POST['qty'];
 $total = $_POST['total'];
 $description_of_invoice = $_POST['description_of_invoice'];
-$client_id = $_POST['client_id'];
+$client_id = $getinvoice['staff_id'];
 $currency = $_POST['currency'];
 $taxable = $_POST['taxable'];
 $terms_of_service = $_POST['terms_of_service'];
@@ -68,7 +68,7 @@ $due_date = $_POST['due_date'];
 $payment_terms_date = $_POST['payment_terms_date'];
 $payment_type = $_POST['payment_type'];
 $invoice_created =  date("Y-m-d");
-$staff_id = $_POST['client_id'];
+$staff_id = $getinvoice['staff_id'];
 $id = $getinvoice['id'];
 
 
@@ -118,6 +118,9 @@ $stmt->execute(array(
 
 ));
 
+ header('Location: '.$_SERVER['REQUEST_URI']);
+
+
 echo '<div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>
     <p class="uk-text-capitalize">Invoice #'.$id.' has been updated Successfully</p>
@@ -134,39 +137,42 @@ var_dump($pdo->errorInfo());
 
 ?>
 
-
-
-
-
-
 <form action="" method="post" >
     <br />
     <div  class="uk-child-width-expand  uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-3@s">
-            <input class="uk-input" id="price" type="text" required oninput="setTwoNumberDecimal(this)" step="0.01"  value="<?php if (!empty($getinvoice['price'])) { echo $getinvoice['price']; } ?>0.00" type="number" name="price" oninput="calculate();" placeholder="Price">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Price</label>
+            <input class="uk-input" id="price" type="text" required oninput="setTwoNumberDecimal(this)" step="0.01"  value="<?php if (!empty($getinvoice['price'])) { echo $getinvoice['price']; } ?>" type="number" name="price" oninput="calculate();" placeholder="Price">
+        </div>
+
+        <div class="uk-width-1-3@s">
+                    <label class="uk-form-label uk-text-left" for="uk-form-label">Quantity</label>
+            <input class="uk-input" type="text"  oninput="calculate();" id="qty"  value="<?php if (!empty($getinvoice['qty'])) { echo $getinvoice['qty']; } ?>" required name="qty" placeholder="Quantity">
         </div>
         <div class="uk-width-1-3@s">
-            <input class="uk-input" type="text"  oninput="calculate();" id="qty" required name="qty" placeholder="Quantity">
-        </div>
-        <div class="uk-width-1-3@s">
-            <input class="uk-input"  id="total" required  name="total" placeholder="Total">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Total</label>
+            <input class="uk-input"  id="total" required  value="<?php if (!empty($getinvoice['total'])) { echo $getinvoice['total']; } ?>" name="total" placeholder="Total">
         </div>
     </div>
     <br />
+
     <textarea name="description_of_invoice" id="editor" placeholder="Description Of Invoice"> </textarea>
     <br />
     <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-2">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Select Currancey</label>
             <select required name="currency" class="uk-select uk-form-width-large" >
-                <option value="" disabled selected>Select a Currency</option>
+          <option disabled selected <?php if (!empty($getinvoice['currency'])) { echo $getinvoice['currency']; } ?> ><?php if (!empty($getinvoice['currency'])) { echo $getinvoice['currency']; } ?></option>   
+               <option value="Outstanding">Outstanding</option>
                 <option value="USD">USD</option>
                 <option value="GBP">GBP</option>
             </select>
         </div>
         
         <div class="uk-width-1-2">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Taxable</label>
             <select required name="taxable" class="uk-select  uk-form-width-large" >
-                <option  value="" disabled selected>Taxable</option>
+          <option disabled selected <?php if (!empty($getinvoice['taxable'])) { echo $getinvoice['taxable']; } ?> ><?php if (!empty($getinvoice['taxable'])) { echo $getinvoice['taxable']; } ?></option>        <option value="Outstanding">Outstanding</option>
                 <option  value="yes" >Yes</option>
                 <option  value="no" >No</option>
             </select>
@@ -182,9 +188,9 @@ var_dump($pdo->errorInfo());
 <br/>
 <br/>
 <div class="uk-width-1-1">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Invoice Status</label>
     <select reqiuired name="invoice_status" class="uk-select">
-        <option disabled selected>Select Invoice Status</option>
-        <option value="Outstanding">Outstanding</option>
+          <option disabled selected <?php if (!empty($getinvoice['invoice_status'])) { echo $getinvoice['invoice_status']; } ?> ><?php if (!empty($getinvoice['invoice_status'])) { echo $getinvoice['invoice_status']; } ?></option>        <option value="Outstanding">Outstanding</option>
         <option value="Paid" >Paid</option>
         <option value="Unpaid">Unpaid</option>
         <option value="Cancelled" >Canceled</option>
@@ -192,27 +198,33 @@ var_dump($pdo->errorInfo());
 </div>
 <br/>
 <div class="uk-width-1-1">
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Payment Type</label>
     <select reqiuired name="payment_type" class="uk-select">
-        <option disabled selected>Select payment Type</option>
+          <option disabled selected <?php if (!empty($getinvoice['payment_type'])) { echo $getinvoice['payment_type']; } ?> ><?php if (!empty($getinvoice['payment_type'])) { echo $getinvoice['payment_type']; } ?></option>
         <option value="Paypal">Paypal</option>
         <option value="Credit/Debt" >Credit/debt</option>
     </select>
 </div>
 <div class="uk-width-1-1">
     <br />
-    <select  name="type_of_invoice" class="uk-select">
-        <option disabled selected>Select Type of invoice</option>
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Type Of Invoice</label>
+
+    <select  name="type_of_invoice"  class="uk-select">
+        <option disabled selected <?php if (!empty($getinvoice['type_of_invoice'])) { echo $getinvoice['type_of_invoice']; } ?> ><?php if (!empty($getinvoice['type_of_invoice'])) { echo $getinvoice['type_of_invoice']; } ?></option>
         <option  name="type_of_invoice"  value="Recurring" >Recurring </option>
         <option  name="type_of_invoice" value="One Time Payment"  >One Time Payment </option>
 
     </select>
 </div>
 <br />
-<input type="text" class=" uk-input" name="due_date" placeholder="Select Due Date" id="calendar-tomorrow">
-<br />
-<br />
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Due Date</label>
 
-<input type="text" class=" uk-input"   name="payment_terms_date" placeholder="Select Payment Terms" id="calendar-tomorrow">
+<input type="text" class=" uk-input" name="due_date" value="<?php if (!empty($getinvoice['due_date'])) { echo $getinvoice['due_date']; } ?>" placeholder="Select Due Date" id="calendar-tomorrow">
+<br />
+<br />
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Payment Terms Date</label>
+
+<input type="text" class=" uk-input" value="<?php if (!empty($getinvoice['payment_terms_date'])) { echo $getinvoice['payment_terms_date']; } ?>"   name="payment_terms_date" placeholder="Select Payment Terms" id="calendar-tomorrow">
 <br /><br />
 <input class="uk-button uk-button-primary" name="btn-create-invoice" type="submit" value="Create Invoice">
 </form>
