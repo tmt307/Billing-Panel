@@ -126,16 +126,22 @@ var_dump($pdo->errorInfo());
     <br />
     <div  class="uk-child-width-expand  uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-3@s">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Price</label>
             <input class="uk-input" id="price" type="text" required oninput="setTwoNumberDecimal(this)" step="0.01"  value="0.00" type="number" name="price" oninput="calculate();" placeholder="Price">
         </div>
         <div class="uk-width-1-3@s">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Quantity</label>
             <input class="uk-input" type="text"  oninput="calculate();" id="qty" required name="qty" placeholder="Quantity">
         </div>
         <div class="uk-width-1-3@s">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Total</label>
             <input class="uk-input"  id="total" required  name="total" placeholder="Total">
         </div>
     </div>
     <br />
+    <label class="uk-form-label uk-text-left" for="uk-form-label">Description Of Invoice</label>
+    <br />    <br />
+
     <textarea name="description_of_invoice" id="editor" placeholder="Description Of Invoice"> </textarea>
     <br />
     <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
@@ -148,14 +154,16 @@ var_dump($pdo->errorInfo());
         </div>
         
         <div class="uk-width-1-2">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Taxable</label>
             <select required name="taxable" class="uk-select  uk-form-width-large" >
-                <option  value="" disabled selected>Taxable</option>
                 <option  value="yes" >Yes</option>
                 <option  value="no" >No</option>
             </select>
         </div>
     </div>
-    <br />
+        <br />
+    <label class="uk-form-label uk-text-left" for="uk-form-label">Terms Of Service</label>
+    <br />    <br />
     <textarea name="terms_of_service" id="editor2" placeholder="Terms Of Service"> </textarea>
 </div>
 <div class="uk-width-1-3  uk-card uk-card-default uk-card-body" >
@@ -172,12 +180,11 @@ var_dump($pdo->errorInfo());
 <h3>OR </h3>
 <a class="uk-button uk-button-default " href="#modal-sections"  uk-toggle>Add a new client</a>
 
-<br/>
 
 <br/>
 <div class="uk-width-1-1">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Invoice Status</label>
     <select reqiuired name="invoice_status" class="uk-select">
-        <option disabled selected>Select Invoice Status</option>
         <option value="Outstanding">Outstanding</option>
         <option value="Paid" >Paid</option>
         <option value="Unpaid">Unpaid</option>
@@ -186,16 +193,18 @@ var_dump($pdo->errorInfo());
 </div>
 <br/>
 <div class="uk-width-1-1">
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Payment Type</label>
     <select reqiuired name="payment_type" class="uk-select">
-        <option disabled selected>Select payment Type</option>
         <option value="Paypal">Paypal</option>
         <option value="Credit/Debt" >Credit/debt</option>
     </select>
 </div>
 <div class="uk-width-1-1">
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Type Of Invoice</label>
+
     <br />
+
     <select  name="type_of_invoice" class="uk-select">
-        <option disabled selected>Select Type of invoice</option>
         <option  name="type_of_invoice"  value="Recurring" >Recurring </option>
         <option  name="type_of_invoice" value="One Time Payment"  >One Time Payment </option>
 

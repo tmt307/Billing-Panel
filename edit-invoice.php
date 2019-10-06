@@ -146,7 +146,7 @@ var_dump($pdo->errorInfo());
         </div>
 
         <div class="uk-width-1-3@s">
-                    <label class="uk-form-label uk-text-left" for="uk-form-label">Quantity</label>
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Quantity</label>
             <input class="uk-input" type="text"  oninput="calculate();" id="qty"  value="<?php if (!empty($getinvoice['qty'])) { echo $getinvoice['qty']; } ?>" required name="qty" placeholder="Quantity">
         </div>
         <div class="uk-width-1-3@s">
@@ -155,7 +155,8 @@ var_dump($pdo->errorInfo());
         </div>
     </div>
     <br />
-
+    <label class="uk-form-label uk-text-left" for="uk-form-label">Description Of Invoice</label>
+    <br />    <br />
     <textarea name="description_of_invoice" id="editor" placeholder="Description Of Invoice"> </textarea>
     <br />
     <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
@@ -179,6 +180,8 @@ var_dump($pdo->errorInfo());
         </div>
     </div>
     <br />
+        <label class="uk-form-label uk-text-left" for="uk-form-label">Terms Of Service</label>
+        <br/> <br />
     <textarea name="terms_of_service" id="editor2" placeholder="Terms Of Service"> </textarea>
 </div>
 <div class="uk-width-1-3  uk-card uk-card-default uk-card-body" >
