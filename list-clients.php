@@ -3,21 +3,14 @@
 
 <?php require_once('includes/navigation-bar.php'); ?>
 
-<?php $clients = $pdo->query("SELECT * FROM clients")->fetchAll(); 
-// and somewhere later:
+<?php $clients = $pdo->query("SELECT * FROM clients")->fetchAll(); ?>
 
 
-?>
-
-
-<?php ini_set('display_errors',1); error_reporting(E_ALL);
-
- ?>
+<?php ini_set('display_errors',1); error_reporting(E_ALL);?>
 
 
 
-<div class="uk-width-3-4 ">
-    <div class="uk-card uk-card-primary uk-card-body">
+    <div class=" uk-width-5-6 uk-card uk-card-primary uk-card-body">
 
 <?php if (isset($_GET['id'])) {
 $id = $_GET['id'];
