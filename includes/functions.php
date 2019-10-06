@@ -34,7 +34,7 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("INSERT INTO users(userName,userEmail)
+			$stmt = $this->conn->prepare("INSERT INTO account_users(userName,userEmail)
 			 VALUES(:user_name, :user_mail)");
 			$stmt->bindparam(":user_name",$username);
 			$stmt->bindparam(":user_mail",$email);
@@ -52,7 +52,7 @@ class USER
 		try
 		{
 			$password = md5($upass);
-			$stmt = $this->conn->prepare("INSERT INTO users(userName,userEmail,userPass,tokenCode)
+			$stmt = $this->conn->prepare("INSERT INTO account_users(userName,userEmail,userPass,tokenCode)
 			 VALUES(:user_name, :user_mail, :user_pass, :active_code)");
 			$stmt->bindparam(":user_name",$username);
 			$stmt->bindparam(":user_mail",$email);
@@ -71,17 +71,17 @@ class USER
 	{
 		try
 		{
-			$stmt = $this->conn->prepare("SELECT * FROM users WHERE userEmail=:email_id");
+			$stmt = $this->conn->prepare("SELECT * FROM account_users WHERE userEmail=:email_id");
 			$stmt->execute(array(":email_id"=>$email));
 			$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
 			if($stmt->rowCount() == 1)
 			{
-				if($userRow['userStatus']=="Y")
+				if($userRow['account_userstatus']=="Y")
 				{
 					if($userRow['userPass']==md5($upass))
 					{
-						$_SESSION['userSession'] = $userRow['userID'];
+						$_SESSION['account_usersession'] = $userRow['userID'];
 						return true;
 					}
 					else
@@ -111,7 +111,7 @@ class USER
 
 	public function is_logged_in()
 	{
-		if(isset($_SESSION['userSession']))
+		if(isset($_SESSION['account_usersession']))
 		{
 			return true;
 		}
@@ -125,7 +125,7 @@ class USER
 	public function logout()
 	{
 		session_destroy();
-		$_SESSION['userSession'] = false;
+		$_SESSION['account_usersession'] = false;
 	}
 
 	function send_mail($email,$message,$subject)

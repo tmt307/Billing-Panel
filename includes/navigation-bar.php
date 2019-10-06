@@ -11,7 +11,7 @@ if(!$user_home->is_logged_in())
 	$user_home->redirect('login.php');
 }
 
-$stmt = $user_home->runQuery("SELECT * FROM users WHERE userID=:uid");
+$stmt = $user_home->runQuery("SELECT * FROM account_users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
