@@ -44,7 +44,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       <li class="uk-parent">
         <a href="#" class="parent-menu">  <i class="fas fa-user-edit"></i>  Account Settings</a>
         <ul class="uk-nav-sub">
-          <li> <a href="edit-account.php">Edit Account</a></li>
+          <li> <a href="account.php">Edit Account</a></li>
           <li><a href="change-password.php">Change Password</a></li>
           <li>
             <a href="logout.php">Logout</a>

@@ -161,6 +161,7 @@ var_dump($pdo->errorInfo());
     <br />
     <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-2">
+
             <label class="uk-form-label uk-text-left" for="uk-form-label">Select Currancey</label>
             <select required name="currency" class="uk-select uk-form-width-large" >
           <option disabled selected <?php if (!empty($getinvoice['currency'])) { echo $getinvoice['currency']; } ?> ><?php if (!empty($getinvoice['currency'])) { echo $getinvoice['currency']; } ?></option>   

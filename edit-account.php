@@ -7,11 +7,17 @@
 
 
 <?php
+   
+
+
 ini_set('display_errors',1); error_reporting(E_ALL);
 if (isset($_POST['btn-update'])) {
 $id = $row['userID'];
 $username = $_POST['username'];
 $email = $_POST['email'];
+
+
+
 $sql = "UPDATE users SET userName=:username, userEmail=:email WHERE userID=:userID";;
 $stmt = $pdo->prepare($sql);
 $stmt->execute(array(':username' => $username, 
@@ -19,7 +25,7 @@ $stmt->execute(array(':username' => $username,
 				  ':userID' => $id, 
 ));
 
-header("LOCATION: edit-account.php?successful");
+header("LOCATION: account.php?successful");
 
 }
 if(isset($_GET['successful']))
@@ -59,8 +65,11 @@ echo '<div class="uk-alert-success" uk-alert>
 
 <div class="uk-width-1-3 uk-card uk-card-default uk-card-body" >
 <h3> Edit Profile Picture </h3>
-<div class="js-upload" uk-form-custom>
-	<input type="file" multiple>
-	<button class="uk-button uk-button-default" type="button" >Select</button>
+<form action="" method="post" enctype="multipart/form-data">
+	<input type="file" name="upload-image" multiple>
+
+	<button class="" type="button" name="btn-update" >Select</button>
 </div>
+</form>
+
 </div>

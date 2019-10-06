@@ -146,6 +146,7 @@ var_dump($pdo->errorInfo());
     <br />
     <div class="uk-child-width-expand uk-grid-small uk-text-center" uk-grid>
         <div class="uk-width-1-2">
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Select Currancey</label>
             <select required name="currency" class="uk-select uk-form-width-large" >
                 <option value="" disabled selected>Select a Currency</option>
                 <option value="USD">USD</option>
@@ -154,10 +155,11 @@ var_dump($pdo->errorInfo());
         </div>
         
         <div class="uk-width-1-2">
-            <label class="uk-form-label uk-text-left" for="uk-form-label">Taxable</label>
+            <label class="uk-form-label uk-text-left" for="uk-form-label">Select Tax Status</label>
             <select required name="taxable" class="uk-select  uk-form-width-large" >
-                <option  value="yes" >Yes</option>
-                <option  value="no" >No</option>
+            <option disabled selected>Select Tax Status</option>
+                <option value="yes" >Yes</option>
+                <option value="no" >No</option>
             </select>
         </div>
     </div>
@@ -178,13 +180,14 @@ var_dump($pdo->errorInfo());
     
 </select>
 <h3>OR </h3>
-<a class="uk-button uk-button-default " href="#modal-sections"  uk-toggle>Add a new client</a>
+<a class="uk-button uk-button-primary " href="#modal-sections"  uk-toggle>Add a new client</a>
 
-
+<br/>
 <br/>
 <div class="uk-width-1-1">
             <label class="uk-form-label uk-text-left" for="uk-form-label">Invoice Status</label>
     <select reqiuired name="invoice_status" class="uk-select">
+        <option disabled selected>Select Invoice Status</option>
         <option value="Outstanding">Outstanding</option>
         <option value="Paid" >Paid</option>
         <option value="Unpaid">Unpaid</option>
@@ -195,10 +198,11 @@ var_dump($pdo->errorInfo());
 <div class="uk-width-1-1">
      <label class="uk-form-label uk-text-left" for="uk-form-label">Payment Type</label>
     <select reqiuired name="payment_type" class="uk-select">
+        <option disabled selected>Select payment Type</option>
         <option value="Paypal">Paypal</option>
         <option value="Credit/Debt" >Credit/debt</option>
     </select>
-</div>
+</div><br />
 <div class="uk-width-1-1">
      <label class="uk-form-label uk-text-left" for="uk-form-label">Type Of Invoice</label>
 
@@ -211,10 +215,13 @@ var_dump($pdo->errorInfo());
     </select>
 </div>
 <br />
-<input type="text" class=" uk-input" name="due_date" placeholder="Select Due Date" id="calendar-tomorrow">
-<br />
-<br />
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Select Due Date</label>
 
+<input type="text" class=" uk-input" name="due_date" placeholder="Select Due Date" id="calendar-tomorrow">
+<br /><br />
+     <label class="uk-form-label uk-text-left" for="uk-form-label">Select Payment Terms</label>
+
+<br />
 <input type="text" class=" uk-input"   name="payment_terms_date" placeholder="Select Payment Terms" id="calendar-tomorrow">
 <br /><br />
 <input class="uk-button uk-button-primary" name="btn-create-invoice" type="submit" value="Create Invoice">
