@@ -52,7 +52,13 @@ if (isset($_POST['btn-update'])) {
 $id = $row['userID'];
 $username = $_POST['username'];
 $email = $_POST['email'];
-$sql = "UPDATE users SET userName=:username, userEmail=:email WHERE userID=:userID";;
+$firstline = $_POST['userFirstname'];
+$email = $_POST['userSurname'];
+$email = $_POST['email'];
+$email = $_POST['email'];
+$email = $_POST['email'];
+
+$sql = "UPDATE account_users SET userName=:username, userEmail=:email WHERE userID=:userID";;
 $stmt = $pdo->prepare($sql);
 $stmt->execute(array(':username' => $username, 
                   ':email' => $email,
@@ -83,16 +89,68 @@ echo '<div class="uk-alert-success" uk-alert>
 </div>
 <div class="uk-margin">
   <div class="uk-inline">
-    <a class="uk-form-icon" href="#"  uk-icon="icon: mail"></a>
-    <input class="uk-input uk-form-width-large" type="text"  name="email" value="
-<?php echo isset($row['userEmail']) ? $row['userEmail'] : ''; ?>" placeholder="Email" >
+    <input class="uk-input uk-form-width-large" type="text"  name="userFirstname" value="
+<?php echo isset($row['
+userFirstname']) ? $row['
+userFirstname'] : ''; ?>" placeholder="First Name" >
   </div>
 </div>
+
 <div class="uk-margin">
-  <div class="uk-margin">
-    <textarea class="uk-textarea  uk-form-width-large" rows="5" placeholder="Bio"></textarea>
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="userSurname" value="
+<?php echo isset($row['userSurname']) ? $row['userSurname'] : ''; ?>" placeholder="Surname" >
   </div>
 </div>
+
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="user1stLineOfAddress" value="
+<?php echo isset($row['user1stLineOfAddress']) ? $row['user1stLineOfAddress'] : ''; ?>" placeholder="1st  Line Of Address" >
+  </div>
+</div>
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="user2ndLineOfAddress" value="
+<?php echo isset($row['user2ndLineOfAddress']) ? $row['user2ndLineOfAddress'] : ''; ?>" placeholder="2nd  Line Of Address" >
+  </div>
+</div>
+
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="userRegion" value="
+<?php echo isset($row['userRegion']) ? $row['userRegion'] : ''; ?>" placeholder="Region">
+  </div>
+</div>
+
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="userCity" value="
+<?php echo isset($row['userCity']) ? $row['userCity'] : ''; ?>" placeholder="City" >
+  </div>
+</div>
+
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="userPostcode" value="
+<?php echo isset($row['userPostcode']) ? $row['userPostcode'] : ''; ?>" placeholder="Postcode" >
+  </div>
+</div>
+
+
+<div class="uk-margin">
+  <div class="uk-inline">
+    <input class="uk-input uk-form-width-large" type="text"  name="userContactNumber" value="
+<?php echo isset($row['userContactNumber']) ? $row['userContactNumber'] : ''; ?>" placeholder="Contact Number" >
+  </div>
+</div>
+
+
 <input onclick="return confirm('Are you sure you want make theses changes?')" class="uk-button uk-button-primary" type="submit" name="btn-update" href="#">
 </div>
 </form>
@@ -100,9 +158,9 @@ echo '<div class="uk-alert-success" uk-alert>
 <div class="uk-width-1-3 uk-card uk-card-default uk-card-body" >
 <h3> Edit Profile Picture </h3>
 <form action="" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="file" name="fileToUpload" class="uk-button uk-button-primary" id="fileToUpload">
+    <br /><br />
+    <input type="submit" value="Upload Image"  class="uk-button uk-button-primary" name="submit">
 </form>
 
 </div>
