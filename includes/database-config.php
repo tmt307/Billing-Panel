@@ -1,7 +1,9 @@
 <?php $base_url = "http://localhost";
 $websitename = "Toms Billing System";
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $termsofservice = "Terms of service (also known as terms of use and terms and conditions, commonly abbreviated as TOS or ToS, ToU or T&C) are the legal agreements between a service provider and a person who wants to use that service. The person must agree to abide by the terms of service in order to use the offered service.";
+error_reporting(E_ALL);
 
 $accountfirstname="Thomas";
 $accountsurname="Turner";
