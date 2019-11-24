@@ -10,21 +10,15 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="-1">
 	<!-- CSS Stylesheets --->
-	<link href="assets/css/font-awesome-5.css " rel="stylesheet">
+	<link href="css/all.css " rel="stylesheet">
 	<link href="assets/css/uikit.min.css" rel="stylesheet">
 	<link href="assets/css/custom.css" rel="stylesheet">
-	<link href="assets/css/styles.css" rel="stylesheet">
-	<link href="assets/css/chart.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-	<!-- Javascript Simple Scripts --->
-	<script src="assets/js/uikit.min.js" type="text/javascript"></script>
-	<script src="assets/js/uikit-icons.min.js" type="text/javascript"></script>
-	<script src="assets/js/font-awesome-5.js" type="text/javascript"></script>
-	<script src="assets/js/chart.js" type="text/javascript"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-</head>
+	<link href="assets/css/styles.css" rel="stylesheet">]
+    <link href="assets/css/chart.css" rel="stylesheet">
+    <link href="assets/css/chart.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://kit.fontawesome.com/3b12aa8f39.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
+    </head>
 
 
