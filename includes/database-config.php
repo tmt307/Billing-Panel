@@ -1,13 +1,12 @@
 <?php $base_url = "http://localhost";
 $websitename = "Toms Billing System";
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 $termsofservice = "Terms of service (also known as terms of use and terms and conditions, commonly abbreviated as TOS or ToS, ToU or T&C) are the legal agreements between a service provider and a person who wants to use that service. The person must agree to abide by the terms of service in order to use the offered service.";
-error_reporting(E_ALL);
+
 
 $accountfirstname="Thomas";
 $accountsurname="Turner";
-$account1stlineofaddress="29 Pinfold Hill";
+$account1stlineofaddress="test road";
 $account2ndlineofaddress="";
 $accountstate="West Yorkshire";
 $accountcity="Leeds";
@@ -18,16 +17,16 @@ $accountnumber="01234 45212";
 // error_reporting(E_ALL);
 
 $user = "root";
-$pass = "root";
-$pdo = new PDO('mysql:host=localhost;dbname=billing', $user, $pass);
+$pass = "";
+$pdo = new PDO('mysql:host=localhost;dbname=test', $user, $pass);
 
 
 class Database
 {
   private $host = "localhost";
-  private $db_name = "billing";
+  private $db_name = "test";
   private $username = "root";
-  private $password = "root";
+  private $password = "";
     public $conn;
     public function dbConnection()
 	{
@@ -48,9 +47,5 @@ class Database
     }
 } }
 
-// try {
-// // $pdo = new PDO('mysql:host=localhost;dbname=tish_database;charset=utf-8','root','');
-// // } catch(PDOException $e){
-// // echo 'Connection failed'.$e->getMessage();
-// // }
+
 ?>
